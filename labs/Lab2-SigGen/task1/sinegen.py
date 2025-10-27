@@ -1,3 +1,4 @@
+#this code generates sinerom.mem which is loaded into the rom
 import math
 import string
 f = open("sinerom.mem","w")
