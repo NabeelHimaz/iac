@@ -5,12 +5,12 @@ module sinegen #(
     input  logic             clk,  //clock
     input  logic             rst,  //rest
     input  logic             en,   //counter enable
-    input  Logic [ADDRESS_WIDTH-1:0]  incr,
-    output Logic [DATA_WIDTH-1:0] dout
+    input  logic [ADDRESS_WIDTH-1:0]  incr,
+    output logic [DATA_WIDTH-1:0] dout
 );
     
-    logic [ADDRESS_WIDTH] addr; //internal signal
-    logic [ADDRESS_WIDTH] count;
+    logic [ADDRESS_WIDTH-1:0] addr; //internal signal
+    logic [ADDRESS_WIDTH-1:0] count;
 
     assign addr = count;
 
@@ -27,7 +27,7 @@ module sinegen #(
     rom #(
         .ADDRESS_WIDTH(ADDRESS_WIDTH),
         .DATA_WIDTH(DATA_WIDTH)
-    ) (
+    ) rom1(
         .clk(clk),
         .addr(addr),
         .dout(dout)
