@@ -23,7 +23,7 @@ int main(int argc, char **argv, char **env){
     top->clk = 1;
     top->rst = 1;
     top->en = 0;
-    top->incr = 0;
+    top->incr = 1;
 
     for(i=1; i<1000000; i++){
 
@@ -32,7 +32,10 @@ int main(int argc, char **argv, char **env){
             top->clk = !top->clk;
             top->eval ();
         }
-
+        //vbdHex(4, (int(top->dout) >> 16) & 0xF);
+        //vbdHex(3, (int(top->dout) >> 8) & 0xF);
+        //vbdHex(2, (int(top->dout) >> 4) & 0xF);
+        //vbdHex(1, int(top->dout) & 0xF);
         vbdPlot(int(top->dout), 0, 255);
 
         top->rst = (i<2) | (i == 15);
