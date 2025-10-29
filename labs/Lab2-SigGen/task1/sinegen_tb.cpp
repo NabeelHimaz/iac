@@ -23,9 +23,10 @@ int main(int argc, char **argv, char **env){
     top->clk = 1;
     top->rst = 1;
     top->en = 0;
-    top->incr = 1;
+    top->incr = 5;
 
     for(i=1; i<1000000; i++){
+        top->incr = vbdValue();
 
         for(clk=0; clk<2; clk++){
             tfp->dump (2*i+clk);
